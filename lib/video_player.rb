@@ -29,6 +29,7 @@ module VideoPlayer
     end
 
     def embed_url
+      return unless url.present?
       case
       when matchdata = url.match(YouTubeRegex)
         youtube_embed(matchdata[4])
