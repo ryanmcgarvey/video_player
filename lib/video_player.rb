@@ -8,7 +8,7 @@ module VideoPlayer
   class Parser
     DefaultWidth = '420'
     DefaultHeight = '315'
-    DefaultAutoPlay = true
+    DefaultAutoPlay = false
 
     YouTubeRegex  = /\A(https?:\/\/)?(www.)?(youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/watch\?feature=player_embedded&v=)([A-Za-z0-9_-]*)(\&\S+)?(\?\S+)?/i
     VimeoRegex    = /\Ahttps?:\/\/(www.)?vimeo\.com\/([A-Za-z0-9._%-]*)((\?|#)\S+)?/i
