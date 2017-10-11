@@ -25,6 +25,10 @@ module VideoPlayer
     end
 
     def embed_code
+      ifram_code(embed_url) if embed_url
+    end
+
+    def embed_url
       case
       when matchdata = url.match(YouTubeRegex)
         youtube_embed(matchdata[4])
@@ -34,8 +38,6 @@ module VideoPlayer
         izlesene_embed(matchdata[2])
       when matchdata = url.match(WistiaRegex)
         wistia_embed(matchdata[4])
-      else
-        false
       end
     end
 
@@ -49,22 +51,18 @@ module VideoPlayer
 
     def youtube_embed(video_id)
       src = "//www.youtube.com/embed/#{video_id}?autoplay=#{autoplay}&rel=0"
-      iframe_code(src)
     end
 
     def vimeo_embed(video_id)
       src = "//player.vimeo.com/video/#{video_id}"
-      iframe_code(src)
     end
 
     def izlesene_embed(video_id)
       src = "//www.izlesene.com/embedplayer/#{video_id}/?autoplay=#{autoplay}&showrel=0&showinfo=0"
-      iframe_code(src)
     end
 
     def wistia_embed(video_id)
       src = "//fast.wistia.net/embed/iframe/#{video_id}/?autoplay=#{autoplay}&showrel=0&showinfo=0"
-      iframe_code(src)
     end
   end
 end
